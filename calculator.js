@@ -12,24 +12,24 @@ var clear = document.getElementById("clear");
       equals = el("#equals"),
       nums = el(".num"),
       ops = el(".ops"),
-      theNum = "",
+      newNum = "",
       oldNum = "",
       resultNum,
       operator;
   
     var setNum = function() {
       if (resultNum) {
-        theNum = this.getAttribute("data-num");
+        newNum = this.getAttribute("data-num");
         resultNum = "";
       } else {
-        theNum += this.getAttribute("data-num");
+        newNum += this.getAttribute("data-num");
       }
-      viewer.innerHTML = theNum;
+      viewer.innerHTML = newNum;
     };
   
     var moveNum = function() {
-      oldNum = theNum;
-      theNum = "";
+      oldNum = newNum;
+      newNum = "";
       operator = this.getAttribute("data-ops");
   
       equals.setAttribute("data-result", "");
@@ -37,19 +37,19 @@ var clear = document.getElementById("clear");
   
     var displayNum = function() {
       oldNum = parseFloat(oldNum);
-      theNum = parseFloat(theNum);
+      newNum = parseFloat(newNum);
       switch (operator) {
         case "plus":
-          resultNum = oldNum + theNum;
+          resultNum = oldNum + newNum;
           break;
         case "minus":
-          resultNum = oldNum - theNum;
+          resultNum = oldNum - newNum;
           break;
         case "times":
-          resultNum = oldNum * theNum;
+          resultNum = oldNum * newNum;
           break;
         case "divided by":
-          resultNum = oldNum / theNum;
+          resultNum = oldNum / newNum;
           break;
         case "root":
           resultNum = Math.sqrt(oldNum).toFixed(5);
@@ -58,7 +58,7 @@ var clear = document.getElementById("clear");
           resultNum = Math.pow(oldNum,1/3).toFixed(5);
           break;
           case "rootx":
-          resultNum = Math.pow(oldNum, 1/theNum).toFixed(5);
+          resultNum = Math.pow(oldNum, 1/newNum).toFixed(5);
           break;
         case "exponentiation2":
           resultNum = oldNum * oldNum;
@@ -67,10 +67,10 @@ var clear = document.getElementById("clear");
           resultNum = oldNum * oldNum * oldNum;
           break;
         case "exponentiationx":
-          resultNum = Math.pow(oldNum, theNum);
+          resultNum = Math.pow(oldNum, newNum);
           break;
         default:
-          resultNum = theNum;
+          resultNum = newNum;
       }
   
       if (!isFinite(resultNum)) {
@@ -87,14 +87,14 @@ var clear = document.getElementById("clear");
       equals.setAttribute("data-result", resultNum);
   
       oldNum = 0;
-      theNum = resultNum;
+      newNum = resultNum;
   
     };
 
   
     clear.addEventListener("click", () => {
       oldNum = "";
-      theNum = "";
+      newNum = "";
       viewer.innerHTML = "0";
       equals.setAttribute("data-result", resultNum);
     });
