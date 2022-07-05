@@ -8,78 +8,98 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Kalkulator
-        <hr></br>
-    </h1>
-    <div id="container">
+    <h1>Kalkulator<hr></h1>
+    <div id="calculator" class="calculator">
+        <hr>
         <div class="wynik">
-            <p></p>
+            <p id="viewer" class="viewer">0</p>
         </div>
         <div class="row">
             <div class="calc-button">
-                <button>AC</button>
+                <button id="clear" class="clear">CE</button>
             </div>
             <div class="calc-button">
-                <button>√</button>
+                <button data-ops="root" class="ops">√</button>
             </div>
             <div class="calc-button">
-                <button>%</button>
+                <button data-ops="root3" class="ops">∛</button>
             </div>
             <div class="calc-button">
-                <button>/</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="calc-button">
-                <button>7</button>
+                <button data-ops="exponentiation2" class="ops">x²</button>
             </div>
             <div class="calc-button">
-                <button>8</button>
-            </div>
-            <div class="calc-button">
-                <button>9</button>
-            </div>
-            <div class="calc-button">
-                <button>*</button>
+                <button data-ops="exponentiation3" class="ops">x³</button>
             </div>
         </div>
         <div class="row">
             <div class="calc-button">
-                <button>4</button>
+                <button class="num" data-num="7">7</button>
             </div>
             <div class="calc-button">
-                <button>5</button>
+                <button class="num" data-num="8">8</button>
             </div>
             <div class="calc-button">
-                <button>6</button>
+                <button class="num" data-num="9">9</button>
             </div>
             <div class="calc-button">
-                <button>-</button>
+                <button data-ops="rootx" class="ops">ⁿ√</button>
+            </div>
+            <div class="calc-button">
+                <button data-ops="exponentiationx" class="ops">xⁿ</button>
             </div>
         </div>
         <div class="row">
             <div class="calc-button">
-                <button>1</button>
+                <button class="num" data-num="4">4</button>
             </div>
             <div class="calc-button">
-                <button>2</button>
+                <button class="num" data-num="5">5</button>
             </div>
             <div class="calc-button">
-                <button>3</button>
+                <button class="num" data-num="6">6</button>
             </div>
             <div class="calc-button">
-                <button>+</button>
+                <button data-ops="times" class="ops">×</button>
+            </div>
+            <div class="calc-button">
+                <button data-ops="divided by" class="ops">÷</button>
             </div>
         </div>
-        <div class="row-long">\
+        <div class="row">
             <div class="calc-button">
-                <button>0</button>
+                <button class="num" data-num="1">1</button>
             </div>
             <div class="calc-button">
-                <button>Oblicz</button>
+                <button class="num" data-num="2">2</button>
+            </div>
+            <div class="calc-button">
+                <button class="num" data-num="3">3</button>
+            </div>
+            <div class="calc-button">
+                <button data-ops="plus" class="ops">+</button>
+            </div>
+            <div class="calc-button">
+                <button data-ops="minus" class="ops">-</button>
             </div>
         </div>
+        <div class="row">
+            <div class="row-long">
+                <div class="calc-button">
+                    <button class="num" data-num="0">0</button>
+                </div>
+            </div>
+            <div class="calc-button">
+                <button class="num" data-num=".">.</button>
+            </div>
+            <div class="row-long">
+                <div class="calc-button">
+                    <button id="equals" class="equals" data-result="">Oblicz</button>
+                </div>
+            </div>
+        </div>
+        <hr>
     </div>
     
+    <script src="calculator.js"></script>
 </body>
 </html>
